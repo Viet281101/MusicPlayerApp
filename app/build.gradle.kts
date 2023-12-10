@@ -4,16 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.musicplayer"
-<<<<<<< HEAD
-    compileSdk = 33
-=======
+    namespace = "com.virap.musicplayer"
     compileSdk = 34
->>>>>>> e375875 (setup test)
 
     defaultConfig {
-        applicationId = "com.example.musicplayer"
-        minSdk = 25
+        applicationId = "com.virap.musicplayer"
+        minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
