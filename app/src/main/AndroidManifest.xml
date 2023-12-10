@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/music_player_icon_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MusicPlayer"
+        android:theme="@style/splash_screen"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
