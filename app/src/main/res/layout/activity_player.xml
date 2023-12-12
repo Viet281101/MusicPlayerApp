@@ -1,9 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlayerActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".PlayerActivity"
+    android:orientation="vertical"
+    android:gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Header Player -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <!-- Back Button -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_icon"
+            android:contentDescription="@string/back_btn"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="5dp"/>
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/blue"
+            android:text="@string/world_of_music"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            tools:ignore="NestedWeights" />
+
+        <!-- Favorite Button -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/favorite_empty_icon"
+            android:contentDescription="@string/favor_btn"
+            android:background="@android:color/transparent"
+            android:layout_marginEnd="5dp"
+            android:minHeight="48dp"
+            android:minWidth="48dp"/>
+
+    </LinearLayout>
+
+    <!-- Current Song Image -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/music_player_icon_slash_screen"
+        app:shapeAppearanceOverlay="@style/curved"
+        app:strokeColor="@color/blue"
+        app:strokeWidth="5dp"/>
+
+    <!-- Current Song Name -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="@string/song_name"
+        android:textSize="18sp"
+        android:textColor="@color/blue"
+        android:gravity="center"
+        android:layout_weight="1"/>
+
+    <!-- Seekbar & TextViews for it -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/blue"
+            android:textSize="15sp"
+            android:text="@string/start_tv"
+            android:gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/blue"
+            android:textSize="15sp"
+            android:text="@string/end_tv"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <!-- Floating Buttons for Previous, Pause & Next -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <!-- Previous Button -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/previous_icon"
+            app:iconSize="40dp"
+            android:contentDescription="@string/previous_btn"
+            app:iconTint="@color/blue"/>
+
+        <!-- Pause/Play Button -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/pause_icon"
+            app:iconSize="50dp"
+            android:layout_marginHorizontal="35dp"
+            android:contentDescription="@string/pause_btn"
+            app:shapeAppearanceOverlay="@style/curved"
+            android:backgroundTint="@color/splash_color"
+            app:iconTint="@color/blue"
+            app:strokeColor="@color/blue"
+            app:strokeWidth="3dp"/>
+
+        <!-- Skip Next Button -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/next_icon"
+            app:iconSize="40dp"
+            android:contentDescription="@string/next_btn"
+            app:iconTint="@color/blue"/>
+
+    </LinearLayout>
+
+    <!-- Bottom 4 Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <!-- Repeat Button -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/repeat_icon"
+            android:contentDescription="@string/repeat_btn"
+            android:background="@android:color/transparent"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_weight="1"
+            tools:ignore="NestedWeights" />
+
+        <!-- Equalizer Button -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/equalizer_icon"
+            android:contentDescription="@string/equalizer_btn"
+            android:background="@android:color/transparent"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_weight="1"/>
+
+        <!-- Timer Button -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/timer_icon"
+            android:contentDescription="@string/timer_btn"
+            android:background="@android:color/transparent"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_weight="1"/>
+
+        <!-- Share Button -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/share_icon"
+            android:contentDescription="@string/share_btn"
+            android:background="@android:color/transparent"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>
