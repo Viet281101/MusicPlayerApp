@@ -1,5 +1,6 @@
 package com.virap.musicplayer
 
+import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Intent
 import android.content.ServiceConnection
@@ -18,9 +19,9 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection {
         var songPosition: Int = 0
         var isPlaying : Boolean = false
         var musicService: MusicService? = null
+        @SuppressLint("StaticFieldLeak")
+        lateinit var binding: ActivityPlayerBinding
     }
-
-    private lateinit var binding: ActivityPlayerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +67,7 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection {
             musicService!!.mediaPlayer!!.setDataSource(musicListPA[songPosition].path)
             musicService!!.mediaPlayer!!.prepare()
             playMusic()
+            musicService!!.showNotification(R.drawable.pause_icon)
         } catch (e: Exception) {return}
     }
 
@@ -88,11 +90,13 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection {
 
     private fun playMusic() {
         binding.playPauseBtnPA.setIconResource(R.drawable.pause_icon)
+        musicService!!.showNotification(R.drawable.pause_icon)
         isPlaying = true
         musicService!!.mediaPlayer!!.start()
     }
     private fun pauseMusic() {
         binding.playPauseBtnPA.setIconResource(R.drawable.play_icon)
+        musicService!!.showNotification(R.drawable.play_icon)
         isPlaying = false
         musicService!!.mediaPlayer!!.pause()
     }
@@ -107,18 +111,6 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection {
             setSongPosition(increment = false)
             setLayout()
             createMediaPlayer()
-        }
-    }
-
-    private fun setSongPosition(increment: Boolean) {
-        if (increment) {
-            if (musicListPA.size - 1 == songPosition)
-                songPosition = 0
-            else ++songPosition
-        } else {
-            if (0 == songPosition)
-                songPosition = musicListPA.size - 1
-            else --songPosition
         }
     }
 

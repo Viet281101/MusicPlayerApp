@@ -1,5 +1,6 @@
 package com.virap.musicplayer
 
+import android.media.MediaMetadataRetriever
 import java.util.concurrent.TimeUnit
 
 data class Music(
@@ -19,4 +20,21 @@ fun formatDuration(duration: Long):String {
                     minutes * TimeUnit.SECONDS.convert(1, TimeUnit.MINUTES)
             )
     return String.format("%02d:%02d", minutes, seconds)
+}
+
+fun  getImgArt(path: String): ByteArray? {
+    val retriever = MediaMetadataRetriever()
+    retriever.setDataSource(path)
+    return retriever.embeddedPicture
+}
+fun setSongPosition(increment: Boolean) {
+    if (increment) {
+        if (PlayerActivity.musicListPA.size - 1 == PlayerActivity.songPosition)
+            PlayerActivity.songPosition = 0
+        else ++PlayerActivity.songPosition
+    } else {
+        if (0 == PlayerActivity.songPosition)
+            PlayerActivity.songPosition = PlayerActivity.musicListPA.size - 1
+        else --PlayerActivity.songPosition
+    }
 }

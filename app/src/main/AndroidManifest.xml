@@ -4,8 +4,10 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
+        android:name=".ApplicationClass"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -43,6 +45,9 @@
             </intent-filter>
         </activity>
         <service android:name=".MusicService"/>
+        <receiver android:name=".NotificationReceiver"
+            android:enabled="true"
+            />
     </application>
 
 </manifest>
