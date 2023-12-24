@@ -18,13 +18,14 @@
 
         <!-- Back Button -->
         <ImageButton
+            android:id="@+id/backBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/back_icon"
             android:contentDescription="@string/back_btn"
             android:background="@android:color/transparent"
             android:layout_marginStart="5dp"
-            android:padding="5dp"/>
+            android:padding="5dp" />
 
         <!-- Title -->
         <TextView
@@ -82,6 +83,7 @@
         android:layout_weight="1">
 
         <TextView
+            android:id="@+id/tvSeekBarStartPA"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@color/blue"
@@ -90,12 +92,14 @@
             android:gravity="center"/>
 
         <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekBarPA"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             tools:ignore="NestedWeights" />
 
         <TextView
+            android:id="@+id/tvSeekBarEndPA"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@color/blue"
@@ -166,6 +170,7 @@
 
         <!-- Repeat Button -->
         <ImageButton
+            android:id="@+id/repeatBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/repeat_icon"
@@ -178,6 +183,7 @@
 
         <!-- Equalizer Button -->
         <ImageButton
+            android:id="@+id/equalizerBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/equalizer_icon"
@@ -189,6 +195,7 @@
 
         <!-- Timer Button -->
         <ImageButton
+            android:id="@+id/timerBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/timer_icon"

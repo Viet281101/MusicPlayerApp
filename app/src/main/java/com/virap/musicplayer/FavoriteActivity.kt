@@ -13,5 +13,8 @@ class FavoriteActivity : AppCompatActivity() {
         setTheme(R.style.lightBlueNav)
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.backBtnFA.setOnClickListener {
+            finish()
+        }
     }
 }

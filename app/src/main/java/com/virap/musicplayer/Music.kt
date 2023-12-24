@@ -2,6 +2,7 @@ package com.virap.musicplayer
 
 import android.media.MediaMetadataRetriever
 import java.util.concurrent.TimeUnit
+import kotlin.system.exitProcess
 
 data class Music(
     val id:String,
@@ -28,13 +29,25 @@ fun  getImgArt(path: String): ByteArray? {
     return retriever.embeddedPicture
 }
 fun setSongPosition(increment: Boolean) {
-    if (increment) {
-        if (PlayerActivity.musicListPA.size - 1 == PlayerActivity.songPosition)
-            PlayerActivity.songPosition = 0
-        else ++PlayerActivity.songPosition
-    } else {
-        if (0 == PlayerActivity.songPosition)
-            PlayerActivity.songPosition = PlayerActivity.musicListPA.size - 1
-        else --PlayerActivity.songPosition
+    if (!PlayerActivity.repeat) {
+        if (increment) {
+            if (PlayerActivity.musicListPA.size - 1 == PlayerActivity.songPosition)
+                PlayerActivity.songPosition = 0
+            else ++PlayerActivity.songPosition
+        } else {
+            if (0 == PlayerActivity.songPosition)
+                PlayerActivity.songPosition = PlayerActivity.musicListPA.size - 1
+            else --PlayerActivity.songPosition
+        }
     }
 }
+
+fun exitApplication(){
+    if (PlayerActivity.musicService != null) {
+        PlayerActivity.musicService!!.stopForeground(true)
+        PlayerActivity.musicService!!.mediaPlayer!!.release()
+        PlayerActivity.musicService = null
+    }
+    exitProcess(1)
+}
+

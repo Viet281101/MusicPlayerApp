@@ -13,5 +13,8 @@ class PlaylistActivity : AppCompatActivity() {
         setTheme(R.style.lightBlueNav)
         binding = ActivityPlaylistBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.backBtnPLA.setOnClickListener {
+            finish()
+        }
     }
 }
