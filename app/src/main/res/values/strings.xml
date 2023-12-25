@@ -43,4 +43,6 @@
     <string name="min_30">30 Minutes</string>
     <string name="min_60">60 Minutes</string>
     <string name="min_120">120 Minutes</string>
+
+    <string name="search_view">Search View</string>
 </resources>

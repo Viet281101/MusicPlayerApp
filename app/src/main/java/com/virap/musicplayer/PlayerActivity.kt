@@ -7,6 +7,7 @@ import android.content.ServiceConnection
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.media.audiofx.AudioEffect
+import android.net.Uri
 import android.os.Bundle
 import android.os.IBinder
 import android.widget.LinearLayout
@@ -116,6 +117,13 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection, MediaPlayer.OnCom
                 customDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLUE)
             }
         }
+        binding.shareBtnPA.setOnClickListener {
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.type = "audio/*"
+            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(musicListPA[songPosition].path))
+            startActivity(Intent.createChooser(shareIntent, "Sharing Music File !"))
+        }
     }
 
     private fun setLayout() {
@@ -149,6 +157,11 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection, MediaPlayer.OnCom
     private fun initializeLayout() {
         songPosition = intent.getIntExtra("index", 0)
         when (intent.getStringExtra("class")) {
+            "MusicAdapterSearch" -> {
+                musicListPA = ArrayList()
+                musicListPA.addAll(MainActivity.musicListSearch)
+                setLayout()
+            }
             "MusicAdapter" -> {
                 musicListPA = ArrayList()
                 musicListPA.addAll(MainActivity.MusicListMA)

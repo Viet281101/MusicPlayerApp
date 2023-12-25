@@ -207,6 +207,7 @@
 
         <!-- Share Button -->
         <ImageButton
+            android:id="@+id/shareBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/share_icon"
