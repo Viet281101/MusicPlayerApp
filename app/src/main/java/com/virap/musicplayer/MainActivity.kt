@@ -19,6 +19,8 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import com.virap.musicplayer.databinding.ActivityMainBinding
 import java.io.File
 
@@ -47,8 +49,18 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_icon)
-        if (requestRuntimePermission())
+        if (requestRuntimePermission()) {
             initializeLayout()
+            //// For retrieving favorites data using shared preferences
+            FavoriteActivity.favouriteSongs = ArrayList()
+            val editor = getSharedPreferences("FAVORITES", MODE_PRIVATE)
+            val jsonString = editor.getString("FavoriteSongs", null)
+            val typeToken = object : TypeToken<ArrayList<Music>>(){}.type
+            if (jsonString != null) {
+                val data : ArrayList<Music> = GsonBuilder().create().fromJson(jsonString, typeToken)
+                FavoriteActivity.favouriteSongs.addAll(data)
+            }
+        }
 
         binding.shuffleBtn.setOnClickListener {
             val intent = Intent(this@MainActivity, PlayerActivity::class.java)
@@ -197,6 +209,16 @@ class MainActivity : AppCompatActivity() {
             exitApplication()
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        //// For storing favorites data using shared preferences
+        val editor = getSharedPreferences("FAVORITES", MODE_PRIVATE).edit()
+        val jsonString = GsonBuilder().create().toJson(FavoriteActivity.favouriteSongs)
+        editor.putString("FavoriteSongs", jsonString)
+        editor.apply()
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_view_menu, menu)

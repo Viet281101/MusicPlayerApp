@@ -40,12 +40,13 @@
 
         <!-- Favorite Button -->
         <ImageButton
+            android:id="@+id/favoriteBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/favorite_empty_icon"
             android:contentDescription="@string/favor_btn"
             android:background="@android:color/transparent"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="15dp"
             android:minHeight="48dp"
             android:minWidth="48dp"/>
 
