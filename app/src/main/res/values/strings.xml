@@ -45,4 +45,9 @@
     <string name="min_120">120 Minutes</string>
 
     <string name="search_view">Search View</string>
+
+    <string name="song_img">Song Image</string>
+    <string name="playlist_name">Playlist Name</string>
+    <string name="playlist_delete">Delete</string>
+    <string name="user_name">Your Name</string>
 </resources>

@@ -21,7 +21,7 @@
             android:id="@+id/backBtnFA"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:src="@drawable/back_icon"
+            android:src="@drawable/arrow_back_icon"
             android:contentDescription="@string/back_btn"
             android:backgroundTint="@android:color/transparent"
             android:padding="5dp"/>

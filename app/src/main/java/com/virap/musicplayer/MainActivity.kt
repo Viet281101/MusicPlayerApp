@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navExit -> {
                     val builder = MaterialAlertDialogBuilder(this)
                     builder.setTitle("Exit")
-                        .setMessage("Do you to close app ?")
+                        .setMessage("Do you want to close app ?")
                         .setPositiveButton("Yes") { _, _ ->
                             exitApplication()
                         }
