@@ -21,6 +21,9 @@ class FavoriteActivity : AppCompatActivity() {
         setTheme(R.style.lightBlueNav)
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        favouriteSongs = checkPlaylist(favouriteSongs)
+
         binding.backBtnFA.setOnClickListener {
             finish()
         }

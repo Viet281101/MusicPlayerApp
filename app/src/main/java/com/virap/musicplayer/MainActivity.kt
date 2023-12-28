@@ -34,11 +34,16 @@ class MainActivity : AppCompatActivity() {
         lateinit var MusicListMA : ArrayList<Music>
         lateinit var musicListSearch : ArrayList<Music>
         var search : Boolean = false
+        var themeIndex: Int = 0
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val themeEditor = getSharedPreferences("THEMES", MODE_PRIVATE)
+        themeIndex = themeEditor.getInt("themeIndex", 0)
+
         setTheme(R.style.lightBlueNav)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -60,6 +65,12 @@ class MainActivity : AppCompatActivity() {
                 val data : ArrayList<Music> = GsonBuilder().create().fromJson(jsonString, typeToken)
                 FavoriteActivity.favouriteSongs.addAll(data)
             }
+            PlaylistActivity.musicPlaylist = MusicPlaylist()
+            val jsonStringPlaylist = editor.getString("MusicPlaylist", null)
+            if (jsonStringPlaylist != null) {
+                val dataPlaylist : MusicPlaylist = GsonBuilder().create().fromJson(jsonStringPlaylist, MusicPlaylist::class.java)
+                PlaylistActivity.musicPlaylist = dataPlaylist
+            }
         }
 
         binding.shuffleBtn.setOnClickListener {
@@ -76,9 +87,15 @@ class MainActivity : AppCompatActivity() {
         }
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.navFeedback -> Toast.makeText(baseContext, "Feedback", Toast.LENGTH_SHORT).show()
-                R.id.navSettings -> Toast.makeText(baseContext, "Settings", Toast.LENGTH_SHORT).show()
-                R.id.navAbout -> Toast.makeText(baseContext, "About", Toast.LENGTH_SHORT).show()
+                R.id.navFeedback -> {
+                    startActivity(Intent(this@MainActivity, FeedbackActivity::class.java))
+                }
+                R.id.navSettings -> {
+                    startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
+                }
+                R.id.navAbout -> {
+                    startActivity(Intent(this@MainActivity, AboutActivity::class.java))
+                }
                 R.id.navExit -> {
                     val builder = MaterialAlertDialogBuilder(this)
                     builder.setTitle("Exit")
@@ -216,6 +233,8 @@ class MainActivity : AppCompatActivity() {
         val editor = getSharedPreferences("FAVORITES", MODE_PRIVATE).edit()
         val jsonString = GsonBuilder().create().toJson(FavoriteActivity.favouriteSongs)
         editor.putString("FavoriteSongs", jsonString)
+        val jsonStringPlaylist = GsonBuilder().create().toJson(PlaylistActivity.musicPlaylist)
+        editor.putString("MusicPlaylist", jsonStringPlaylist)
         editor.apply()
     }
 

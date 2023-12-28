@@ -33,9 +33,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
     // for viewBinding
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -51,6 +55,9 @@ dependencies {
     implementation("androidx.media:media:1.7.0")
     //// For storing objects in shared preferences
     implementation("com.google.code.gson:gson:2.10.1")
+    //// For sending mail
+    implementation("com.sun.mail:android-mail:1.6.7")
+    implementation("com.sun.mail:android-activation:1.6.7")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
