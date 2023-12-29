@@ -3,6 +3,11 @@
 
 An simple music application that load music from your audio files and play it in Android mobile.
 
+<p>
+  <img align="right" width=20% height=20% src="screen_shot_demo/screenshot_1.png"/>
+  <img align="right" width=20% height=20% src="screen_shot_demo/screenshot_2.png"/>
+</p>
+
 ### Some features:
 - Play/Pause Audio
 - Play Next Feature
