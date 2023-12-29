@@ -1,7 +1,7 @@
 
 # MusicPlayerApp
 
-An simple music application that load music from your audio files and play it in Android mobile
+An simple music application that load music from your audio files and play it in Android mobile.
 
 
 ### Some features:
@@ -17,4 +17,5 @@ An simple music application that load music from your audio files and play it in
 - Background Playing with custom Notification
 - Android Notification with Seekbar
 - Save & Share audio files to others media
+  
 
