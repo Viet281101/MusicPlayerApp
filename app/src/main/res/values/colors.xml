@@ -11,7 +11,11 @@
     <color name="light_blue">#FFC5E4FF</color>
     <color name="cyan_blue">#FF00F2FF</color>
     <color name="primary_blue">#FF639BFF</color>
+    <color name="primary_dark">#FF25343D</color>
+    <color name="bg_1">#FFCEE6FF</color>
+    <color name="bg_2">#FFCBDBFC</color>
     <color name="deep_blue">#FF102C7B</color>
+    <color name="black_blue">#FF191231</color>
     <color name="teal_200">#FF62FCD6</color>
     <color name="teal_700">#FF00674D</color>
 </resources>

@@ -13,6 +13,7 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(MainActivity.currentTheme[MainActivity.themeIndex])
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.title = "Settings"
@@ -33,6 +34,23 @@ class SettingsActivity : AppCompatActivity() {
             saveTheme(2)
         }
         binding.versionName.text = setVersionDetails()
+        binding.sortBtn.setOnClickListener {
+            val menuList = arrayOf("Recently Added", "Song Title", "File Size")
+            var currentSort = MainActivity.sortOrder
+            val builder = MaterialAlertDialogBuilder(this)
+            builder.setTitle("Sorting Music List")
+                .setPositiveButton("APPLY") { _, _ ->
+                    val editor = getSharedPreferences("SORTING", MODE_PRIVATE).edit()
+                    editor.putInt("sortOrder", currentSort)
+                    editor.apply()
+                }
+                .setSingleChoiceItems(menuList, currentSort) { _, which ->
+                    currentSort = which
+                }
+            val  customDialog = builder.create()
+            customDialog.show()
+            customDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE)
+        }
     }
     private fun saveTheme(index: Int) {
         if (MainActivity.themeIndex != index) {

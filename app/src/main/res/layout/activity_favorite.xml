@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/light_blue"
+        android:background="?attr/themeColor"
         android:layout_marginTop="2dp">
 
         <ImageButton
@@ -54,7 +54,7 @@
         android:id="@+id/shuffleBtnFA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/light_blue"
+        android:backgroundTint="?attr/themeColor"
         app:icon="@drawable/shuffle_icon"
         app:iconSize="35dp"
         app:iconTint="@color/blue"

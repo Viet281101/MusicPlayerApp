@@ -43,9 +43,16 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".PlaylistDetails"
-            android:exported="false"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="audio/*" android:scheme="content"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".PlaylistActivity"
             android:exported="false"

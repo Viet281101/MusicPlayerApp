@@ -76,7 +76,9 @@
             android:id="@+id/sortBtn"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:src="@drawable/sort_icon"
+            android:src="@drawable/sort_ic_image"
+            android:paddingHorizontal="4dp"
+            android:paddingTop="4dp"
             android:tint="@color/blue"/>
 
     </LinearLayout>
