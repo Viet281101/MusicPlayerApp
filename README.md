@@ -4,14 +4,15 @@
 An simple music application that load music from your audio files and play it in Android mobile.
 
 <p>
-  <img align="right" width=20% height=20% src="screen_shot_demo/screenshot_1.png"/>
-  <img align="right" width=20% height=20% src="screen_shot_demo/screenshot_2.png"/>
+  <img align="right" width=25% height=25% src="screen_shot_demo/screenshot_1.png"/>
+  <img align="right" width=25% height=25% src="screen_shot_demo/screenshot_2.png"/>
 </p>
 
 ### Some features:
 - Play/Pause Audio
+- Search Musics
 - Play Next Feature
-- Dark Theme (Chose theme in Settings)
+- Custom Theme (Chose theme in Settings)
 - Add songs to Favorites
 - Create & Add Album Playlists
 - Set Timer Playing
@@ -20,7 +21,11 @@ An simple music application that load music from your audio files and play it in
 - Swipe to refresh UI
 - Background Playing with custom Notification
 - Android Notification with Seekbar
-- Save & Share audio files to others media
+- Save the Data for the audio files 
+- Share audio files to others media
+- Feedback send directly to email
+- Never see ads even while online
+- And more updates in the future
   
 
 
