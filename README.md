@@ -4,8 +4,8 @@
 An simple music application that load music from your audio files and play it in Android mobile.
 
 <p>
-  <img align="right" width=25% height=25% src="screen_shot_demo/screenshot_1.png"/>
-  <img align="right" width=25% height=25% src="screen_shot_demo/screenshot_2.png"/>
+  <img align="right" alt="screenshot 1" width=25% height=25% src="screen_shot_demo/screenshot_1.png"/>
+  <img align="right" alt="screenshot 2" width=25% height=25% src="screen_shot_demo/screenshot_2.png"/>
 </p>
 
 ### Some features:
